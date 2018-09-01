@@ -45,6 +45,7 @@
    * Some recursive name servers are basically dedicated to recursion
    
    **Primary and Secondary**
+   
    A primary Nameserver is the one where it gets the zone detail from file. Now it transfers it to the other name server is called Secondary NameServer by Zone Transfering.
    
    * The secondary name server sends the AXFR query to primary nameserver to initailly get the all DNS details. And periodically it checks the primary name server by sending a SOA query with serial number for the particular refresh time. If the Referesh time is over again the secondary server sends SOA query and primary server sends the serial number if it is increased, Then the secondary server asks the updated DNS details.
@@ -114,5 +115,43 @@
 * However, all name servers send queries and await responses
    * if they don't receive a response within a timeout, they retransmit the query - to another name server, if possible.
  
-    
+  
+# Resource Records
+
+   A resource record, commonly referred to as an RR, is the unit of information entry in DNS zone files; RRs are the basic building blocks of host-name and IP information and are used to resolve all DNS queries. Resource records come in a fairly wide variety of types in order to provide extended name-resolution services
+   
+*Resource Record Types:*
+   * A 
+   
+      The record A specifies IP address (IPv4) for given host. A records are used for conversion of domain names to corresponding IP addresses.
+         
+   * AAAA
+   
+     The record AAAA (also quad-A record) specifies IPv6 address for given host. So it works the same way as the A record and the difference is the type of IP address.
+         
+   * PTR
+   
+     As opposed to forward DNS resolution (A and AAAA DNS records), the PTR record is used to look up domain names based on an IP address.
+         
+   * CNAME
+   
+      The CNAME record specifies a domain name that has to be queried in order to resolve the original DNS query. Therefore CNAME records are used for creating aliases of domain names. CNAME records are truly useful when we want to alias our domain to an external domain. In other cases we can remove CNAME records and replace them with A records and even decrease performance overhead.
+        
+   * MX
+   
+     The MX resource record specifies a mail exchange server for a DNS domain name. The information is used by Simple Mail Transfer Protocol (SMTP) to route emails to proper hosts. Typically, there are more than one mail exchange server for a DNS domain and each of them have set priority.
+     
+   * SRV
+   
+     The SRV record is a Domain Name System (DNS) resource record that is used to identify computers that host specific services.
+     
+   * TXT
+   
+     The text record can hold arbitrary non-formatted text string. Typically, the record is used by Sender Policy Framework (SPF) to prevent fake emails to appear to be sent by you.
+  
+   * Wildcards
+   
+   * RRset
+   
+  
      
