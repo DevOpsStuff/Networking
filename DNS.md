@@ -32,6 +32,23 @@
    
    Name Servers are reponsible for answering the queries sent by the resolvers. But the Name servers also query other Name Servers.
    
+   **Authoritative Name Server**
+   
+   * A name server authoritative for one or more zones.
+   * In common Usage, a name server whose primary function is to answer non-recursive queries for data in its autoritative zones. Some even have recursive disabled.
+   * Also meaningful when a specific context is specified.
+   
+  **Recursive Name Server**
+   
+   * Name server willing to handle recursive queries.
+   * Virtually all recursive name servers also cache,so caching name servers is roughly equivalent.
+   * Some recursive name servers are basically dedicated to recursion
+   
+   **Primary and Secondary**
+   A primary Nameserver is the one where it gets the zone detail from file. Now it transfers it to the other name server is called Secondary NameServer by Zone Transfering.
+   
+   * The secondary name server sends the AXFR query to primary nameserver to initailly get the all DNS details. And periodically it checks the primary name server by sending a SOA query with serial number for the particular refresh time. If the Referesh time is over again the secondary server sends SOA query and primary server sends the serial number if it is increased, Then the secondary server asks the updated DNS details.
+   
 # Resolvers
   
   All the OS have the DNS resolvers,Such as nslookup,dig. It is a software application. Resolvers takes applications requests for data in  DNS and translates them into DNS queries.
